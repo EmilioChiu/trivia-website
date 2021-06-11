@@ -1,6 +1,4 @@
 from flask import Flask, request, render_template, url_for, redirect
-from datetime import datetime
-from flask_bootstrap import Bootstrap
 from score import Score
 from questions import Questions
 from time import sleep
@@ -9,7 +7,6 @@ from clock import Clock
 
 score = Score()
 app = Flask(__name__)
-Bootstrap(app)
 NUM_OF_QUESTIONS = 20
 questions = Questions(amount=NUM_OF_QUESTIONS)
 clock = Clock()
@@ -18,7 +15,6 @@ clock = Clock()
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
-        time = datetime.now()
         if request.form.get("category") == "Random":
             questions.start(category=questions.random_category())
         else:
