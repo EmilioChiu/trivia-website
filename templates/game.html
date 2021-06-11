@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="question_and_score_div">
+    <h2>score: {{score.get()}}/{{current_question+1}}<br>{{ question }}</h2>
+</div>
+<form action="" method="post" onsubmit="return feedback()" name="form">
+    <div id="answers-grid">
+        <div class="row button-group">
+            {% for answer in answers %}
+            <div class="col-sm-6">
+                {% if answer == correct %}
+                <input type="radio" name="user_answer" class="btn-check" id="{{ answer }}" value="correct" autocomplete="off">
+                <label id="right" class="btn btn-outline-info btn-lg w-100" for="{{ answer }}">{{ answer }}</label>
+                {% else %}
+                <input type="radio" name="user_answer" class="btn-check" id="{{ answer }}" value="wrong {{answer}}" autocomplete="off">
+                <label id="wrong {{answer}}" class="btn btn-outline-info btn-lg w-100" for="{{ answer }}">{{ answer }}</label>
+                {% endif%}
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-info btn-lg" type="submit">ok!</button>
+    </div>
+</form>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html"%}
+
+{% block content%}
+<div id="final">
+    <h1>your final score was: {{ final_score }}</h1>
+    <h2>and your time was of: {{ final_time }}</h2><br>
+    <a href="{{ url_for('home') }}" class="btn btn-info btn-lg">play again?</a>
+</div>
+{% endblock %}

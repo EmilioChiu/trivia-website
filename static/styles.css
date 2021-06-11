@@ -1,0 +1,31 @@
+/* general */
+body{
+    text-align: center;
+    background-color: #30475e!important;
+    color: #dddddd!important;
+}
+
+/* start */
+#start{
+    padding: 180px 0;
+}
+
+#trivia-img{
+    width: 10%;
+}
+
+/* game */
+#answers-grid{
+    padding: 0 0 50px 0;
+    width: 30%;
+    margin: auto;
+}
+
+#question_and_score_div{
+    padding: 70px 0;
+}
+
+/* final */
+#final{
+    padding: 200px 0;
+}
